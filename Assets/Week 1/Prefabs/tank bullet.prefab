@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 765222290865745941}
   - component: {fileID: 4553345725569073989}
   - component: {fileID: 2412557903006207562}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tank bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc19900ce0fcf04f87519e7a988088b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
 --- !u!50 &4553345725569073989
 Rigidbody2D:
   serializedVersion: 4
