@@ -6,7 +6,7 @@ public class PlayerMover : MonoBehaviour
 {
     Vector2 direction;
     public float speed = 3;
-    Rigidbody2D rb2D;
+   Rigidbody2D rb2D;
     void Start()
     {
          
@@ -16,9 +16,11 @@ public class PlayerMover : MonoBehaviour
     private void Update()
     {
         direction = new Vector2(speed * Input.GetAxis("Horizontal"), 0);
+        
     }
     void FixedUpdate()
     {
         rb2D.MovePosition(rb2D.position + direction * Time.deltaTime);
+        
     }
 }
