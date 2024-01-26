@@ -9,16 +9,16 @@ public class PlayerJumper : MonoBehaviour
     Vector2 direction;
     void Start()
     {
-        
+        direction = new Vector2(rb2D.velocity.x, 1 * jumpforce);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Space) == true)
         {
-            direction = new Vector2(0, 1 * jumpforce);
-            rb2D.velocity = direction;
+            rb2D.AddForce(new Vector2(rb2D.velocity.x, jumpforce));
+
         }
       
     }
