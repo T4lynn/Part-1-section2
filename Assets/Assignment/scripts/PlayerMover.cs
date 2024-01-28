@@ -5,36 +5,27 @@ using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
 {
+    //the direction the player is moving in
     Vector2 direction;
-    public float speed = 3;
-   Rigidbody2D rb2D;
-    bool keyheld = false;
+    //the speed the player is moving at
+    public float speed = 10;
+   public Rigidbody2D rb2D;
+    //the directional keys pressed (is either 1 or -1 or 0)
+    float moveinput;
     void Start()
     {
          
        rb2D = GetComponent<Rigidbody2D>();
     }
-
     private void FixedUpdate()
     {
+        //direction is intialized in update, so that the y velocity updates
         direction = new Vector2(speed, rb2D.velocity.y);
-        if (Input.GetAxis("Horizontal") == 1)
-        {
-            Debug.Log("pos. direction triggered");
-            keyheld = true;
-            rb2D.AddForce(direction, ForceMode2D.Force);
-        } else if (Input.GetAxis("Horizontal") == -1)
-        {
-            Debug.Log("neg. direction triggered");
-            keyheld = true;
-            rb2D.AddForce(-direction, ForceMode2D.Force);
-        } else
-        {
-            keyheld = false;
-            Debug.Log("false");
-        }
-
-       
+        //here, moveinput must update in order to respond to player input.
+        moveinput = Input.GetAxis("Horizontal");
+        //adds a force that will be the speed, by the moveinput, and in forcemode impulse
+        rb2D.AddForce(direction * moveinput, ForceMode2D.Impulse);
         
+
     }
 }
