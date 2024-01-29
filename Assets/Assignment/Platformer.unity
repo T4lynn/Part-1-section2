@@ -385,7 +385,8 @@ GameObject:
   - component: {fileID: 1855342312}
   - component: {fileID: 1855342311}
   - component: {fileID: 1855342310}
-  - component: {fileID: 1855342314}
+  - component: {fileID: 1855342315}
+  - component: {fileID: 1855342316}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -452,7 +453,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 1
-  m_AngularDrag: 0.05
+  m_AngularDrag: 10
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -532,7 +533,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1855342314
+--- !u!114 &1855342315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855342309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac9ecb37d41749488a38cc46def4ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2D: {fileID: 1855342311}
+  jumpforce: 0.2
+--- !u!114 &1855342316
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -544,8 +559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e975ccf3be70343a07d1fef90bab29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpforce: 500
-  speed: 3
+  speed: 1
+  rb2D: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

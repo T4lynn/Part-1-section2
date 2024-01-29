@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class PlayerMover : MonoBehaviour
    public Rigidbody2D rb2D;
     //the directional keys pressed (is either 1 or -1 or 0)
     float moveinput;
+    float maxspeed = 7;
     void Start()
     {
          
@@ -25,6 +27,13 @@ public class PlayerMover : MonoBehaviour
         moveinput = Input.GetAxis("Horizontal");
         //adds a force that will be the speed, by the moveinput, and in forcemode impulse
         rb2D.AddForce(direction * moveinput, ForceMode2D.Impulse);
+        if (rb2D.velocity.x > maxspeed)
+        {
+            rb2D.velocity = new Vector2(maxspeed, rb2D.velocity.y);
+        } else if (rb2D.velocity.x < -maxspeed)
+        {
+            rb2D.velocity = new Vector2(-maxspeed, rb2D.velocity.y);
+        }
         
 
     }

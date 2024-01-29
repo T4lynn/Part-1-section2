@@ -11,7 +11,8 @@ public class PlayerJumper : MonoBehaviour
     //the force of the jump
     public float jumpforce;
     //a bool that keeps track of whether the player has an y velocity
-    bool movingup = false;
+   public bool movingup = false;
+    float maxspeed = 7;
     void Start()
     {
         jumpforce = 10;
@@ -21,6 +22,7 @@ public class PlayerJumper : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        Debug.Log(rb2D.velocity);
        //listens for both a space press and if the moving up bool is false
         if (Input.GetKey(KeyCode.Space) && movingup == false)
         {
@@ -31,13 +33,21 @@ public class PlayerJumper : MonoBehaviour
             rb2D.AddForce(upwards, ForceMode2D.Impulse);
         }
         //changes movingup bool from true to false depending on the y velocity.
-        if (rb2D.velocity.y != 0)
+        if (rb2D.velocity.y <= 0 )
         {
-            movingup = true;
+            movingup = false;
         }
         else
         {
-            movingup = false;
+            movingup = true;
+        }
+        if (rb2D.velocity.y > maxspeed)
+        {
+            rb2D.velocity = new Vector2(rb2D.velocity.x, maxspeed);
+        }
+        else if (rb2D.velocity.y < -maxspeed)
+        {
+            rb2D.velocity = new Vector2(rb2D.velocity.x, - maxspeed);
         }
     }
 }
