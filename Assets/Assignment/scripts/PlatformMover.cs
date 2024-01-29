@@ -7,7 +7,6 @@ public class PlatformMover : MonoBehaviour
     Vector2 startpos; 
     Vector2 endpos;
     public Vector2 increment = Vector2.right;
-    public Vector2 negincrement = Vector2.left;
 
     void Start()
     {
@@ -19,16 +18,13 @@ public class PlatformMover : MonoBehaviour
     
     void Update()
     {
-       if (transform.position.x < endpos.x)
+        if (transform.position.x > endpos.x)
         {
-            transform.Translate(negincrement * Time.deltaTime);
-        } //else if (transform.position.x < startpos.x)
-      //  {
-          //  transform.Translate(negincrement * Time.deltaTime);
-     //   }
-            
-       
-
-        
+            increment = increment * -1;
+        } else if (transform.position.x < startpos.x)
+        {
+            increment = increment * -1;
+        }
+            transform.Translate(increment * Time.deltaTime);  
     }
 }
