@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public GameObject movingplatform;
+    public Transform spawnpoint;
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        Debug.Log("collision detected");
+        Instantiate(movingplatform, spawnpoint);
     }
-}
+    }

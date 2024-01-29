@@ -22,7 +22,7 @@ public class PlayerJumper : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(rb2D.velocity);
+        
        //listens for both a space press and if the moving up bool is false
         if (Input.GetKey(KeyCode.Space) && movingup == false)
         {
