@@ -41,6 +41,7 @@ public class PlayerJumper : MonoBehaviour
         {
             movingup = true;
         }
+        //maximises the top speed in the y axis
         if (rb2D.velocity.y > maxspeed)
         {
             rb2D.velocity = new Vector2(rb2D.velocity.x, maxspeed);
@@ -48,6 +49,15 @@ public class PlayerJumper : MonoBehaviour
         else if (rb2D.velocity.y < -maxspeed)
         {
             rb2D.velocity = new Vector2(rb2D.velocity.x, - maxspeed);
+        }
+        //maxes the angular velocity
+        if (rb2D.angularVelocity > maxspeed)
+        {
+            rb2D.angularVelocity = maxspeed;
+        }
+        else if (rb2D.angularVelocity < -maxspeed)
+        {
+            rb2D.angularVelocity = -maxspeed;
         }
     }
 }

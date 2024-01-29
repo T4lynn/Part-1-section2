@@ -27,6 +27,7 @@ public class PlayerMover : MonoBehaviour
         moveinput = Input.GetAxis("Horizontal");
         //adds a force that will be the speed, by the moveinput, and in forcemode impulse
         rb2D.AddForce(direction * moveinput, ForceMode2D.Impulse);
+        //maxes the top speed in the x axis 
         if (rb2D.velocity.x > maxspeed)
         {
             rb2D.velocity = new Vector2(maxspeed, rb2D.velocity.y);
