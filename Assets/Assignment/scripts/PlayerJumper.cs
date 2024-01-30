@@ -15,7 +15,7 @@ public class PlayerJumper : MonoBehaviour
     float maxspeed = 7;
     void Start()
     {
-        jumpforce = 10;
+        jumpforce = 5;
         rb2D = GetComponent<Rigidbody2D>();
     }
 
