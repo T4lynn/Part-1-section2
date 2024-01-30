@@ -9,6 +9,6 @@ public class Button : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("collision detected");
-        Instantiate(movingplatform, spawnpoint);
+        Instantiate(movingplatform, spawnpoint.position, spawnpoint.rotation);
     }
     }
